@@ -1,1 +1,4 @@
 #Sample of application.yml
+
+ADMIN_NAME: "admin"
+ADMIN_PASS: "epyfnm"
