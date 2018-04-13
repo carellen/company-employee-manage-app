@@ -1,0 +1,15 @@
+%nav.navbar.navbar-expand.navbar-dark.bg-dark.navbar-right
+  =link_to 'Fibernote', root_path, class: "navbar-brand"
+  %button.navbar-toggler{"aria-controls" => "navbarsExample02", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-target" => "#navbarsExample02", "data-toggle" => "collapse", :type => "button"}
+    %span.navbar-toggler-icon
+  #navbarsExample02.collapse.navbar-collapse
+    %ul.navbar-nav.mr-auto
+      %li.nav-item.active
+        %a.nav-link{:href => "#"}
+          =fa_icon "home"
+          Home
+    %ul.navbar-nav.ml-auto
+      %li.nav-item.active
+        %a.nav-link{:href => "#"}
+          =fa_icon "sign-in"
+          Login
