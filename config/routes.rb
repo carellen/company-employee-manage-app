@@ -6,4 +6,8 @@ Rails.application.routes.draw do
     root to: 'dashboard#index'
     resources :dashboard, only: :index
   end
+
+  namespace :companies do
+    resources :manage
+  end
 end

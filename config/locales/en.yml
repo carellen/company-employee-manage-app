@@ -30,4 +30,10 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  companies:
+    manage:
+      created_message: Company was successfully created
+      updated_message_success: Company was successfully updated
+      updated_message_fail: Update failed!
+      delete_message_success: Company was successfully deleted
+      delete_message_fail: Delete failed!

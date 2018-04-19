@@ -3,3 +3,7 @@
     %a.nav-link{:href => "#"}
       =fa_icon 'cog'
       settings
+  %li.nav-item.active
+    =link_to companies_manage_index_path, method: :get, class: 'nav-link' do
+      =fa_icon 'briefcase'
+      companies
