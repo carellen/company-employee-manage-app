@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
-  root "application#new"
+  devise_for :users
+  root 'user#index'
 
-  resources :admin, only: [:index]
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  namespace :admin do
+    root to: 'dashboard#index'
+    resources :dashboard, only: :index
+  end
 end

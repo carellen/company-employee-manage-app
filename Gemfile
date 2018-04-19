@@ -16,6 +16,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'jquery-rails'
 gem 'bootstrap'
 gem 'simple_form'
+gem 'font-awesome-rails'
 gem 'coffee-rails', '~> 4.2'
 gem 'sass-rails', '~> 5.0'
 gem 'turbolinks', '~> 5'
@@ -39,6 +40,7 @@ group :test do
   gem 'rspec-rails'
 
   gem 'capybara', '>= 2.15', '< 4.0'
+  gem 'factory_bot_rails'
   gem 'selenium-webdriver'
   gem 'chromedriver-helper'
 end

@@ -1,0 +1,9 @@
+%nav.navbar.navbar-expand.navbar-dark.bg-dark.navbar-right
+  =link_to 'Fibernote', root_path, class: "navbar-brand"
+  %button.navbar-toggler{"aria-controls" => "navbarsExample02", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-target" => "#navbarsExample02", "data-toggle" => "collapse", :type => "button"}
+    %span.navbar-toggler-icon
+  #navbarsExample02.collapse.navbar-collapse
+    - if !request.authorization.nil?
+      = render 'layouts/navigation/admin_navigation'
+    - if user_signed_in?
+      = render 'layouts/navigation/user_navigation'
