@@ -3,14 +3,7 @@
   %button.navbar-toggler{"aria-controls" => "navbarsExample02", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-target" => "#navbarsExample02", "data-toggle" => "collapse", :type => "button"}
     %span.navbar-toggler-icon
   #navbarsExample02.collapse.navbar-collapse
-    %ul.navbar-nav.mr-auto
-      %li.nav-item.active
-        %a.nav-link{:href => "#"}
-          =fa_icon "home"
-          Home
-    %ul.navbar-nav.ml-auto
-      %li.nav-item.active
-        - if user_signed_in?
-          =link_to destroy_user_session_path, method: :delete, class: "nav-link" do
-            =fa_icon "sign-out"
-            Log out
+    - if !request.authorization.nil?
+      = render 'layouts/navigation/admin_navigation'
+    - if user_signed_in?
+      = render 'layouts/navigation/user_navigation'

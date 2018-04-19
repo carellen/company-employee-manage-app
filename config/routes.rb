@@ -1,10 +1,9 @@
 Rails.application.routes.draw do
   devise_for :users
-  root "user#index"
-
-  resources :admin, only: [:index]
+  root 'user#index'
 
   namespace :admin do
+    root to: 'dashboard#index'
     resources :dashboard, only: :index
   end
 end

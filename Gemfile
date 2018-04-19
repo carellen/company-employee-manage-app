@@ -40,6 +40,7 @@ group :test do
   gem 'rspec-rails'
 
   gem 'capybara', '>= 2.15', '< 4.0'
+  gem 'factory_bot_rails'
   gem 'selenium-webdriver'
   gem 'chromedriver-helper'
 end

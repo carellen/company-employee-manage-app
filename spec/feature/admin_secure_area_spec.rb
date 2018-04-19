@@ -1,16 +1,20 @@
-require "rails_helper"
+describe 'the admin area is secure', type: :feature do
+  let!(:user) { create(:user) }
 
-describe "the admin area is secure", type: :feature do
-  before :each do
-    User.create(email: 'user@example.com', password: 'password')
+  it 'succeed when admin try to access admin area' do
+    page.driver.browser.basic_authorize(ENV['ADMIN_NAME'], ENV['ADMIN_PASS'])
+    visit '/admin/dashboard'
+    expect(page).to have_http_status(200)
   end
 
-  it "fail when user try to access admin area" do
-    visit '/users/sign_in'
-    fill_in 'Email', with: 'user@example.com'
-    fill_in 'Password', with: 'password'
-    click_button 'Log in'
-    visit "/admin/dashboard"
-    assert_equal 401, status_code
+  it 'fail when guest try to access admin area' do
+    visit '/admin/dashboard'
+    expect(page).to have_http_status(401)
+  end
+
+  it 'fail when user try to access admin area' do
+    log_in
+    visit '/admin/dashboard'
+    expect(page).to have_http_status(401)
   end
 end
