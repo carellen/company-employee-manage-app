@@ -1,6 +1,8 @@
 module Companies
   class ManageController < AdminController
 
+    before_action :define_company, only: [:show, :edit, :update, :destroy]
+
     def index
       @resources = Company.order(:name)
     end
@@ -21,16 +23,12 @@ module Companies
     end
 
     def show
-      @resource = Company.find(params[:id])
     end
 
     def edit
-      @resource = Company.find(params[:id])
     end
 
     def update
-      @resource = Company.find(params[:id])
-
       if @resource.update_attributes(resource_params)
         flash[:notice] = t('companies.manage.updated_message_success')
         redirect_to companies_manage_path(@resource)
@@ -41,18 +39,19 @@ module Companies
     end
 
     def destroy
-      if Company.find(params[:id]).destroy! #TODO review!
-        flash[:notice] = t('companies.manage.delete_message_success')
-        redirect_to companies_manage_index_path
-      else
-        flash[:alert] = t('companies.manage.delete_message_fail')
-      end
+      @resource.destroy!
+      flash[:notice] = t('companies.manage.delete_message_success')
+      redirect_to companies_manage_index_path
     end
 
     private
 
     def resource_params
       params.require(:company).permit(:name, :slug)
+    end
+
+    def define_company
+      @resource = Company.find_by_slug(params[:slug])
     end
   end
 end

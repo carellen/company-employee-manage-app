@@ -8,6 +8,6 @@ Rails.application.routes.draw do
   end
 
   namespace :companies do
-    resources :manage
+    resources :manage, param: :slug
   end
 end
