@@ -31,7 +31,7 @@ module Companies
     def update
       if @resource.update_attributes(resource_params)
         flash[:notice] = t('companies.manage.update_message_success')
-        redirect_to companies_manage_index_path(@resource)
+        redirect_to companies_manage_path(@resource)
       else
         flash[:alert] = t('companies.manage.update_message_fail')
         render :edit
