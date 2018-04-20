@@ -15,8 +15,8 @@ module Companies
       @resource = Company.new(resource_params)
 
       if @resource.save
-        flash[:notice] = t('companies.manage.created_message')
-        redirect_to companies_manage_index_path
+        flash[:notice] = t('companies.manage.create_message')
+        redirect_to companies_manage_path(@resource)
       else
         render :new
       end
@@ -30,10 +30,10 @@ module Companies
 
     def update
       if @resource.update_attributes(resource_params)
-        flash[:notice] = t('companies.manage.updated_message_success')
-        redirect_to companies_manage_path(@resource)
+        flash[:notice] = t('companies.manage.update_message_success')
+        redirect_to companies_manage_index_path(@resource)
       else
-        flash[:alert] = t('companies.manage.updated_message_fail')
+        flash[:alert] = t('companies.manage.update_message_fail')
         render :edit
       end
     end

@@ -1,8 +1,13 @@
 %h1 Editing company
 
-= render 'form'
+= simple_form_for @resource, url: companies_manage_path(@resource) do |f|
+  .form-inputs
+    = f.input :name
+    = f.input :slug
 
-= link_to 'Show', edit_companies_manage_path(@resource)
+  .form-actions
+    = f.button :submit
+= link_to 'Show', companies_manage_path(@resource)
 
 \|
 = link_to 'Back', companies_manage_index_path
