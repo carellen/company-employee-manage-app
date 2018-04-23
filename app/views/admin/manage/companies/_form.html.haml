@@ -1,0 +1,6 @@
+= simple_form_for [:admin, :manage, resource] do |f|
+  .form-inputs
+    = f.input :name, label: t('companies.field_name')
+
+  .form-actions
+    = f.button :submit

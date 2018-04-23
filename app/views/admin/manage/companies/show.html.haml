@@ -1,0 +1,19 @@
+.card
+  .card-header= t('companies.show_form_header')
+
+  .card-body
+    .input-group.mb-3
+      .input-group-prepend
+        %span.input-group-text
+          = t('companies.field_name')
+      %text-area.form-control
+        = @resource.name
+    .input-group.mb-3
+      .input-group-prepend
+        %span.input-group-text
+          = t('companies.field_slug')
+      %text-area.form-control
+        = @resource.slug
+    = link_to t('companies.edit_link'), edit_admin_manage_company_path(@resource)
+    \|
+    = link_to t('default.back_link'), admin_manage_companies_path

@@ -1,0 +1,7 @@
+.card
+  .card-header= t('companies.new_form_header')
+
+  .card-body
+    = render partial: 'form', locals: {resource: @resource}
+
+    = link_to t('default.back_link'), admin_manage_companies_path

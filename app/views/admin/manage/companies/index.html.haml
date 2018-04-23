@@ -1,0 +1,21 @@
+%h1= t('companies.index_form_header')
+
+%table.table
+  %thead
+    %tr
+      %th= t('companies.field_name')
+      %th= t('companies.field_slug')
+      %th{colspan: '3', width: '30%'} actions
+
+  %tbody
+    - @resources.each do |resource|
+      %tr
+        %td= resource.name
+        %td= resource.slug
+        %td= link_to t('companies.show_link'), [:admin, :manage, resource]
+        %td= link_to t('companies.edit_link'), edit_admin_manage_company_path(resource)
+        %td= link_to t('companies.destroy_link'), admin_manage_company_path(resource), method: :delete, data: { confirm: t('default.confirmation_question') }
+
+%br
+
+= link_to t('companies.new_form_header'), new_admin_manage_company_path

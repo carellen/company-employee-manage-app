@@ -5,9 +5,9 @@ Rails.application.routes.draw do
   namespace :admin do
     root to: 'dashboard#index'
     resources :dashboard, only: :index
+    namespace :manage do
+      resources :companies
+    end
   end
 
-  namespace :companies do
-    resources :manage, param: :slug
-  end
 end
