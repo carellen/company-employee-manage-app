@@ -41,12 +41,13 @@ en:
   companies:
     nav_link: companies
     show_link: Show
-    edit_link: Edit company
+    edit_link: Edit
     destroy_link: Destroy
     new_form_header: New Company
     show_form_link: Company
     field_name: Company name
     field_slug: Slug
+    field_actions: Actions
     edit_form_header: Editing company
     index_form_header: Listing companies
     created_message: Company was successfully created

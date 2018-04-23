@@ -3,8 +3,8 @@ Rails.application.routes.draw do
   root 'user#index'
 
   namespace :admin do
-    root to: 'dashboard#index'
-    resources :dashboard, only: :index
+    root to: 'dashboard#show'
+    resource :dashboard, only: :show, controller: 'dashboard'
     namespace :manage do
       resources :companies
     end

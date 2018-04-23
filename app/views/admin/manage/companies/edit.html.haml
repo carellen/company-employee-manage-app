@@ -2,7 +2,7 @@
   .card-header= t('companies.edit_form_header')
 
   .card-body
-    = render partial: 'form', locals: {resource: @resource}
+    = render 'form', resource: @resource
 
     = link_to t('companies.show_link'), admin_manage_company_path(@resource)
     \|
