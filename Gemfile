@@ -7,6 +7,7 @@ gem 'pg', '>= 0.18', '< 2.0'
 gem 'puma', '~> 3.11'
 
 gem 'devise'
+gem 'devise_invitable'
 gem 'figaro'
 gem 'friendly_id', '~> 5.1.0'
 
