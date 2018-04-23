@@ -30,4 +30,26 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  default:
+    confirmation_question: Are you sure?
+    back_link: Back
+  helpers:
+    submit:
+      company:
+        create: Create Company
+        update: Update Company
+  companies:
+    nav_link: companies
+    show_link: Show
+    edit_link: Edit
+    destroy_link: Destroy
+    new_form_header: New Company
+    show_form_link: Company
+    field_name: Company name
+    field_slug: Slug
+    field_actions: Actions
+    edit_form_header: Editing company
+    index_form_header: Listing companies
+    created_message: Company was successfully created
+    updated_message: Company was successfully updated
+    deleted_message: Company was successfully deleted

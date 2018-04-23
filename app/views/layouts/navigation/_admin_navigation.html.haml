@@ -1,5 +1,5 @@
 %ul.navbar-nav
   %li.nav-item.active
-    %a.nav-link{:href => "#"}
-      =fa_icon 'cog'
-      settings
+    = link_to admin_manage_companies_path, class: 'nav-link' do
+      = fa_icon 'briefcase'
+      = t('companies.nav_link')

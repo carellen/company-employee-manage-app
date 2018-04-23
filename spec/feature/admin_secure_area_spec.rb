@@ -2,7 +2,7 @@ describe 'the admin area is secure', type: :feature do
   let!(:user) { create(:user) }
 
   it 'succeed when admin try to access admin area' do
-    page.driver.browser.basic_authorize(ENV['ADMIN_NAME'], ENV['ADMIN_PASS'])
+    log_in_as_admin
     visit '/admin/dashboard'
     expect(page).to have_http_status(200)
   end
