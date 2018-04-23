@@ -6,6 +6,5 @@ FactoryBot.define do
 
   factory :company do
     name 'My company'
-    slug 'my_company'
   end
 end

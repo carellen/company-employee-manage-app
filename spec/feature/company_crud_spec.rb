@@ -1,26 +1,29 @@
-describe 'companies management', type: :feature do
-  let!(:company) { build(:company) }
+describe 'admin companies management', type: :feature do
+  let!(:company) { create(:company) }
+  before(:each) { log_in_as_admin }
 
-  it 'checks crud for companies' do
-    page.driver.browser.basic_authorize(ENV['ADMIN_NAME'], ENV['ADMIN_PASS'])
+  it 'create company' do
     visit '/admin'
-    click_link 'companies'
-    click_link 'New Company'
-    fill_in 'Name', with: company.name
-    fill_in 'Slug', with: company.slug
-    click_button 'Create Company'
-    expect(page).to have_content I18n.t('companies.manage.create_message')
-    click_link 'Back'
-    click_link 'Show'
-    expect(page).to have_content "name #{company.name}"
-    click_link 'Edit'
-    fill_in 'Name', with: 'New name'
-    click_button 'Update Company'
-    expect(page).to have_content I18n.t('companies.manage.update_message_success')
-    click_link 'Back'
-    click_link 'Destroy'
-    expect(page).to have_content I18n.t('companies.manage.delete_message_success')
+    click_on 'companies'
+    click_on 'New Company'
+    fill_in 'Company name', with: 'Unique company'
+    click_on 'Create Company'
+    expect(page).to have_content 'Unique company'
   end
 
+  it 'edit company' do
+    visit "admin/manage/companies/#{company.slug}"
+    click_on 'Edit'
+    fill_in 'Company name', with: 'Unique company'
+    click_on 'Update Company'
+    expect(page).to have_content 'Unique company'
+  end
+
+  it 'delete company' do
+    visit 'admin/manage/companies'
+    expect(page).to have_content "#{company.name}"
+    click_on 'Destroy'
+    expect(page).not_to have_content "#{company.name}"
+  end
 
 end
