@@ -33,7 +33,7 @@ module Admin
       private
 
       def resource_params
-        params.require(:company).permit(:name, :slug)
+        params.require(:company).permit(:name)
       end
 
       def set_resource

@@ -1,7 +1,7 @@
 module Admin
   class DashboardController < AdminController
 
-    def index
+    def show
     end
 
   end
