@@ -8,6 +8,7 @@ gem 'puma', '~> 3.11'
 
 gem 'devise'
 gem 'figaro'
+gem 'friendly_id', '~> 5.1.0'
 
 gem 'haml'
 gem 'haml-rails'
