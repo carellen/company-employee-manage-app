@@ -1,10 +1,10 @@
 %ul.navbar-nav.mr-auto
   %li.nav-item.active
-    %a.nav-link{:href => '#'}
-      =fa_icon 'home'
-      Home
+    = link_to users_manage_employees_path, class: 'nav-link' do
+      = fa_icon 'users'
+      = t('employees.nav_link')
 %ul.navbar-nav.ml-auto
   %li.nav-item.active
-    =link_to destroy_user_session_path, method: :delete, class: 'nav-link' do
-      =fa_icon 'sign-out'
+    = link_to destroy_user_session_path, method: :delete, class: 'nav-link' do
+      = fa_icon 'sign-out'
       Log out

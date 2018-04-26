@@ -1,6 +1,12 @@
 Rails.application.routes.draw do
-  devise_for :users
-  root 'user#index'
+  devise_for :users, :controllers => { :invitations => 'invitations' }
+  root 'users#index'
+
+  namespace :users do
+    namespace :manage do
+      resources :employees
+    end
+  end
 
   namespace :admin do
     root to: 'dashboard#show'

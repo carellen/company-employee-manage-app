@@ -39,7 +39,7 @@ en:
         create: Create Company
         update: Update Company
   companies:
-    nav_link: companies
+    nav_link: Companies
     show_link: Show
     edit_link: Edit
     destroy_link: Destroy
@@ -48,8 +48,20 @@ en:
     field_name: Company name
     field_slug: Slug
     field_actions: Actions
+    field_invite_email: Manager email
     edit_form_header: Editing company
     index_form_header: Listing companies
+    invite_form_header: Invite manager
     created_message: Company was successfully created
     updated_message: Company was successfully updated
     deleted_message: Company was successfully deleted
+    button_text_invite: Invite manager
+    button_text_inviting: Sending invitation...
+    button_text_invited: Manager invited
+  employees:
+    index_form_header: Employees list
+    nav_link: Employees
+    field_company_name: Companies
+    field_employees: Employees
+    deleted_message: Employee was successfully deleted
+    invited_message: Employee was successfully invited

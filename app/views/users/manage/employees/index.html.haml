@@ -1,0 +1,19 @@
+.card
+  .card-header= t('employees.index_form_header')
+  .card-body
+    %table.table
+      %thead
+        %tr
+          %th= t('employees.field_company_name')
+          %th{colspan: '2', width: '70%'}= t('employees.field_employees')
+      %tbody
+        - @resources.each do |resource|
+          %tr
+            %td= resource.company.name
+            %td
+              - resource.company.employees.each do |employee|
+                = employee.user.email
+                = link_to '×', users_manage_employee_path(employee), method: :delete, class: 'close', data: { confirm: t('default.confirmation_question') }
+                %br
+            %td= button_to 'New', new_user_invitation_path, method: :get, params: { company: resource.company.id }
+    %br
