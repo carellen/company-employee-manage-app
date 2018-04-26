@@ -17,6 +17,10 @@ module Admin
         end
       end
 
+      def show
+        @user = User.new
+      end
+
       def update
         if @resource.update(resource_params)
           redirect_to admin_manage_company_path(@resource), notice: t('companies.updated_message')
