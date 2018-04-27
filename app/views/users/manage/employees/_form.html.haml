@@ -1,0 +1,6 @@
+= simple_form_for [:users, :manage, resource] do |f|
+  .form-inputs
+    = f.select :role, Employee.role.values, {}, {class: "custom-select"}
+
+  .form-actions
+    = f.button :submit
