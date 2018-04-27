@@ -1,0 +1,19 @@
+.card
+  .card-header= t('employees.show_form_header')
+
+  .card-body
+    .input-group.mb-3
+      .input-group-prepend
+        %span.input-group-text
+          = t('employees.field_employee_email')
+      %text-area.form-control
+        = @resource.user.email
+    .input-group.mb-3
+      .input-group-prepend
+        %span.input-group-text
+          = t('employees.field_employee_role')
+      %text-area.form-control
+        = @resource.role
+= link_to t('employees.edit_link'), edit_users_manage_employee_path(@resource)
+\|
+= link_to t('default.back_link'), users_manage_employees_path

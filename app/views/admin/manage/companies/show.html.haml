@@ -16,16 +16,12 @@
         = @resource.slug
 .card
   .card-header= t('companies.invite_form_header')
-
   .card-body
     = simple_form_for @user, url: invitation_path(@user), remote: true do |f|
-      .input-group.mb-3
-        .form-inputs
-          = f.input :email, label: t('companies.field_invite_email')
-          = f.hidden_field :company_id, value: @resource.id
-      .input-group-append
-        .form-actions
-          = f.button :submit, value: t('companies.button_text_invite'), id: 'invite_button', data: { disable_with: t('companies.button_text_inviting') }
+      .form-inputs
+        = f.input :email, label: t('companies.field_invite_email')
+        = f.hidden_field :company_id, value: @resource.id
+        = f.button :submit, value: t('companies.button_text_invite'), id: 'invite_button', data: { disable_with: t('companies.button_text_inviting') }
 = link_to t('companies.edit_link'), edit_admin_manage_company_path(@resource)
 \|
 = link_to t('default.back_link'), admin_manage_companies_path

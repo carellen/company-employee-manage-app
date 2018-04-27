@@ -1,11 +1,17 @@
 .card
   .card-header= t('employees.index_form_header')
   .card-body
-    %table.table
+    %table.table.table-bordered
       %thead
         %tr
-          %th= t('employees.field_company_name')
-          %th{colspan: '2', width: '70%'}= t('employees.field_employees')
+          %th{rowspan: '2', style: 'vertical-align: middle'}= t('employees.field_company_name')
+          %th{colspan: '4', style: 'text-align: center'}= t('employees.field_employees')
+          %th{rowspan: '2', style: 'vertical-align: middle'}= t('employees.field_new_employee')
+        %tr
+          %th= t('employees.field_employee_email')
+          %th= t('employees.field_employee_role')
+          %th{style: 'width: 40px;'}= t('employees.field_employee_edit')
+          %th{style: 'width: 40px;'}= t('employees.field_employee_delete')
       %tbody
         - @resources.each do |resource|
           %tr
@@ -13,7 +19,23 @@
             %td
               - resource.company.employees.each do |employee|
                 = employee.user.email
+                %br
+            %td
+              - resource.company.employees.each do |employee|
+                = employee.role_text
+                %br
+            %td
+              - resource.company.employees.each do |employee|
+                = link_to 'œ', edit_users_manage_employee_path(employee), class: 'close'
+                %br
+            %td
+              - resource.company.employees.each do |employee|
                 = link_to '×', users_manage_employee_path(employee), method: :delete, class: 'close', data: { confirm: t('default.confirmation_question') }
                 %br
-            %td= button_to 'New', new_user_invitation_path, method: :get, params: { company: resource.company.id }
-    %br
+            %td
+              = simple_form_for :user, url: user_invitation_path do |f|
+                = f.input :email
+                = f.select :role, Employee.role.values, {}, {class: "custom-select"}
+                = f.hidden_field :company_id, value: resource.company.id
+                = f.button :submit, t('employees.invite_button')
+              %br

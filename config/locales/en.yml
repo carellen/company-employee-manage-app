@@ -49,6 +49,7 @@ en:
     field_slug: Slug
     field_actions: Actions
     field_invite_email: Manager email
+    show_form_header: Company details
     edit_form_header: Editing company
     index_form_header: Listing companies
     invite_form_header: Invite manager
@@ -63,5 +64,15 @@ en:
     nav_link: Employees
     field_company_name: Companies
     field_employees: Employees
+    field_employee_email: Email
+    field_employee_role: Role
+    field_employee_edit: Edit
+    field_employee_delete: Del
+    field_new_employee: Invitation
+    invite_button: Invite new employee
     deleted_message: Employee was successfully deleted
     invited_message: Employee was successfully invited
+    edit_link: Edit
+    show_link: Show
+    edit_form_header: Editing employee
+    show_form_header: Employee

@@ -1,0 +1,9 @@
+.card
+  .card-header= t('employees.edit_form_header')
+
+  .card-body
+    = render 'form', resource: @resource
+
+    = link_to t('employees.show_link'), users_manage_employee_path(@resource)
+    \|
+    = link_to t('default.back_link'), users_manage_employees_path
