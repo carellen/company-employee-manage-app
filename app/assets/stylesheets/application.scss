@@ -1,2 +1,16 @@
 @import "bootstrap";
 @import "font-awesome";
+
+a.close:hover {
+  color: #FF0000;
+}
+
+.card {
+  width: auto;
+  text-align: left;
+  margin: 20px auto;
+}
+
+.btn {
+  margin: 15px 0px;
+}
